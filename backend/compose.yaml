@@ -49,7 +49,7 @@ services:
             retries: 3
             timeout: 5s
     phpmyadmin:
-        container_name: phpmyadmin_final_project
+        container_name: phpmyadmin_laravel
         depends_on:
             - mysql
         image: phpmyadmin/phpmyadmin
