@@ -1,14 +1,15 @@
 <h1>Camisetas</h1>
 
-<a href="{{ route('shirts.create') }}">Nueva camiseta</a>
+<a href="{{ route('shirts.create') }}">Añadir camiseta</a>
 
-<table>
+<table border="1">
     <tr>
         <th>ID</th>
         <th>Equipo</th>
         <th>Temporada</th>
         <th>Talla</th>
         <th>Precio</th>
+        <th>Acciones</th>
     </tr>
 
     @foreach($shirts as $shirt)
