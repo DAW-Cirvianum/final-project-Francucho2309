@@ -14,8 +14,11 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('league');
-            $table->string('country');
+            $table->unsignedBigInteger('league_id');
+            $table->timestamps();
+
+            // Relation
+            $table->foreign('league_id')->references('id')->on('leagues')->onDelete('cascade');
         });
     }
 

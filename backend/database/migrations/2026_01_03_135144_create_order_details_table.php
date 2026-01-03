@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shirts_categories', function (Blueprint $table) {
+        Schema::create('order_details', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('shirt_id');
-            $table->unsignedBigInteger('category_id');
+            $table->string('size');
+            $table->integer('quantity');
+            $table->decimal('unit_price', 8, 2);
 
             // Relation
+            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
             $table->foreign('shirt_id')->references('id')->on('shirts')->onDelete('cascade');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
-
-            // Primary key
-            $table->primary(['shirt_id', 'category_id']);
         });
     }
 
@@ -29,8 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('shirts_categories', function (Blueprint $table) {
-            $table->dropIfExists('shirts_categories');
-        });
+        Schema::dropIfExists('order_details');
     }
 };

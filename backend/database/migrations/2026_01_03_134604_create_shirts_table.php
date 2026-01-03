@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('team_id');
             $table->string('season');
-            $table->string('size', 5);
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 8, 2);
+            $table->timestamps();
 
             // Relation
             $table->foreign('team_id')->references('id')->on('teams')->onDelete('cascade');
@@ -28,8 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('shirts', function (Blueprint $table) {
-            $table->dropIfExists('shirts');
-        });
+        Schema::dropIfExists('shirts');
     }
 };
