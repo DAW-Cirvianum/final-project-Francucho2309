@@ -36,9 +36,9 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Team $team)
     {
-        return view('teams.edit', compact('teams'));
+        return view('teams.edit', compact('team'));
     }
 
     /**

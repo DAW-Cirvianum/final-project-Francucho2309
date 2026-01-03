@@ -3,9 +3,14 @@
 <form action="{{ route('teams.store') }}" method="POST">
     @csrf
 
-    <input type="text" name="name" placeholder="Nombre del equipo">
-    <input type="text" name="league" placeholder="Liga">
-    <input type="text" name="country" placeholder="País">
+    <label>Nombre de equipo</label>
+    <input type="text" name="name">
+
+    <label>Liga</label>
+    <input type="text" name="league">
+
+    <label>País</label>
+    <input type="text" name="country">
 
     <button>Guardar</button>
 </form>

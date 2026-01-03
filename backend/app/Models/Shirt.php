@@ -9,16 +9,14 @@ class Shirt extends Model
     protected $fillable = [
         'team_id',
         'season',
-        'size',
-        'price'
     ];
 
     public function team() {
         return $this->belongsTo(Team::class);
     }
 
-    public function categories() {
-        return $this->belongsToMany(Category::class, 'shirts_categories');
+    public function details() {
+        return $this->hasMany(ShirtDetail::class);
     }
 
     public function images() {

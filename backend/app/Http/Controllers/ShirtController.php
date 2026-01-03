@@ -31,16 +31,14 @@ class ShirtController extends Controller
      */
     public function store(Request $request)
     {
-        Shirt::create($request->all());
-        return redirect()->route('shirts.index');
-    }
+        $request->validate([
+            'team_id' => 'required',
+            'season' => 'required'
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
+        Shirt::create($request->only('team_id', 'season'));
+
+        return redirect()->route('shirts.index');
     }
 
     /**
@@ -57,7 +55,13 @@ class ShirtController extends Controller
      */
     public function update(Request $request, Shirt $shirt)
     {
-        $shirt->update($request->all());
+        $request->validate([
+            'team_id' => 'required',
+            'season' => 'required'
+        ]);
+
+        $shirt->update($request->only('team_id', 'season'));
+        
         return redirect()->route('shirts.index');
     }
 
