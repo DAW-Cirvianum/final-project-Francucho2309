@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\ShirtController;
 use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,3 +11,4 @@ Route::get('/', function () {
 
 Route::resource('leagues', LeagueController::class);
 Route::resource('teams', TeamController::class);
+Route::resource('shirts', ShirtController::class);

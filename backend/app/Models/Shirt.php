@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Shirt extends Model
 {
     protected $fillable = [
-        'team_id',
+        'name',
         'season',
-        'price'
+        'price',
+        'team_id'
     ];
 
     public function team() {
