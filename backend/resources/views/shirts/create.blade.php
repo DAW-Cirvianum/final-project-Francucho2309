@@ -1,6 +1,6 @@
 <h1>Añadir camiseta</h1>
 
-<form action="{{ route('shirts.store') }}" method="POST">
+<form action="{{ route('shirts.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
 
     <label>Nombre: </label>
@@ -19,6 +19,9 @@
         <option value="{{ $team->id }}">{{ $team->name }}</option>
         @endforeach
     </select>
+
+    <label>Imágenes: </label>
+    <input type="file" name="images[]" multiple>
 
     <button>Guardar</button>
 </form>

@@ -1,6 +1,14 @@
 <h1>Editar camiseta</h1>
 
-<form action="{{ route('shirts.update', $shirt) }}" method="POST">
+@if ($errors->any())
+    <ul style="color:red">
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+@endif
+
+<form action="{{ route('shirts.update', $shirt) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
 
@@ -21,6 +29,23 @@
         </option>
         @endforeach
     </select>
+
+    <label>Imágenes: </label>
+    <input type="file" name="images[]" multiple>
+
+    <h3>Imágenes actuales</h3>
+
+    @foreach ($shirt->images as $image)
+    <div style="display: inline-block; margin:10px;">
+        <img src="{{ asset('storage/' . $image->url_image) }}" width="80">
+
+        <form action="{{ route('shirt-images.destroy', $image) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button>Eliminar</button>
+        </form>
+    </div>
+    @endforeach
 
     <button>Actualizar</button>
 </form>

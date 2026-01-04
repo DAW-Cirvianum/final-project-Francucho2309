@@ -32,7 +32,7 @@ class TeamController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'],
+            'name' => ['required', 'regex:/^(?=.*\p{L})[\p{L}0-9\s]+$/u'],
             'league_id' => 'required|exists:leagues,id'
         ]);
 
@@ -56,7 +56,7 @@ class TeamController extends Controller
     public function update(Request $request, Team $team)
     {
         $request->validate([
-            'name' => ['required', 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'],
+            'name' => ['required', 'regex:/^(?=.*\p{L})[\p{L}0-9\s]+$/u'],
             'league_id' => 'required|exists:leagues,id'
         ]);
 

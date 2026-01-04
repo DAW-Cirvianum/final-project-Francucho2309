@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Shirt;
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ShirtController extends Controller
 {
@@ -32,13 +33,27 @@ class ShirtController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'],
+            'name' => ['required', 'regex:/^(?=.*\p{L})[\p{L}0-9\s]+$/u'],
             'season' => 'required',
             'price' => 'required|numeric|min:0',
-            'team_id' => 'required|exists:teams,id'
+            'team_id' => 'required|exists:teams,id',
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        Shirt::create($request->all());
+        $shirt = Shirt::create($request->only([
+            'name', 'season', 'price', 'team_id'
+        ]));
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('shirts', 'public');
+                
+                $shirt->images()->create([
+                    'url_image' => $path
+                ]);
+            }
+        }
 
         return redirect()->route('shirts.index');
     }
@@ -58,13 +73,27 @@ class ShirtController extends Controller
     public function update(Request $request, Shirt $shirt)
     {
         $request->validate([
-            'name' => ['required', 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'],
+            'name' => ['required', 'regex:/^(?=.*\p{L})[\p{L}0-9\s]+$/u'],
             'season' => 'required',
             'price' => 'required|numeric|min:0',
-            'team_id' => 'required|exists:teams,id'
+            'team_id' => 'required|exists:teams,id',
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpg,jpeg,png|max:2048'
         ]);
 
-        $shirt->update($request->all());
+        $shirt->update($request->only([
+            'name', 'season', 'price', 'team_id'
+        ]));
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $path = $image->store('shirts', 'public');
+
+                $shirt->images()->create([
+                    'url_image' => $path
+                ]);
+            }
+        }
 
         return redirect()->route('shirts.index');
     }

@@ -9,6 +9,7 @@
         <th>Temporada</th>
         <th>Precio</th>
         <th>Equipo</th>
+        <th>Imagenes</th>
         <th>Acciones</th>
     </tr>
 
@@ -19,6 +20,11 @@
         <td>{{ $shirt->season }}</td>
         <td>{{ $shirt->price }}</td>
         <td>{{ $shirt->team->name }}</td>
+        <td>
+            @foreach ($shirt->images as $image)
+            <img src="{{ asset('storage/' . $image->url_image) }}" width="60">
+            @endforeach
+        </td>
         <td>
             <a href="{{ route('shirts.edit', $shirt) }}">Editar</a>
 
