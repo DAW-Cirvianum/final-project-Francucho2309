@@ -1,18 +1,30 @@
 <?php
 
 use App\Http\Controllers\LeagueController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShirtController;
-use App\Http\Controllers\ShirtImageController;
 use App\Http\Controllers\TeamController;
+use App\Models\League;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('leagues', LeagueController::class);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::resource('teams', TeamController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
-Route::resource('shirts', ShirtController::class);
-Route::delete('shirtsimages/{image}', [ShirtImageController::class, 'destroy'])->name('shirt-images.destroy');
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('leagues', LeagueController::class);
+    Route::resource('teams', TeamController::class);
+    Route::resource('shirts', ShirtController::class);
+});
+
+require __DIR__.'/auth.php';
