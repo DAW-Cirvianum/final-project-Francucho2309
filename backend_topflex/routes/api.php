@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\LeagueController;
+use App\Http\Controllers\Api\TeamController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,4 +31,15 @@ Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
     Route::post('/leagues', [LeagueController::class, 'store']);
     Route::put('/leagues/{league}', [LeagueController::class, 'update']);
     Route::delete('/leagues/{league}', [LeagueController::class, 'destroy']);
+});
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/teams', [TeamController::class, 'index']);
+    Route::get('/teams/{team}', [TeamController::class, 'show']);
+});
+
+Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {
+    Route::post('/teams', [TeamController::class, 'store']);
+    Route::put('/teams/{team}', [TeamController::class, 'update']);
+    Route::delete('/teams/{team}', [TeamController::class, 'destroy']);
 });
