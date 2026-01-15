@@ -24,11 +24,12 @@ class AuthController extends Controller
             'role' => 'user'
         ]);
 
-        $token = $user->createToken('api-token')->plainTextToken;
+        //$token = $user->createToken('api-token')->plainTextToken;
+        $user->sendEmailVerificationNotification();
 
         return response()->json([
+            'message' => 'User created. Verify your email.',
             'user' => $user,
-            'token' => $token
         ], 201);
     }
 
@@ -42,8 +43,14 @@ class AuthController extends Controller
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
-                'login' => ['Credenciales inválidos'],
+                'login' => ['Invalid credentials'],
             ]);
+        }
+
+        if (!$user->hasVerifiedEmail()) {
+            return response()->json([
+                'message' => 'Email not verified. Please check your email.'
+            ], 403);
         }
 
         $token = $user->createToken('api-token')->plainTextToken;
@@ -58,7 +65,7 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
-            'message' => 'Cerrando sesión'
+            'message' => 'Logging out'
         ]);
     }
 }

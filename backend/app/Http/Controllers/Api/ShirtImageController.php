@@ -43,7 +43,7 @@ class ShirtImageController extends Controller
         $image->delete();
 
         return response()->json([
-            'message' => 'Imágen eliminada'
+            'message' => 'Image removed'
         ], 204);
     }
 }

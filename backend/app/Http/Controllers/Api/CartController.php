@@ -56,7 +56,7 @@ class CartController extends Controller
         $item->delete();
 
         return response()->json([
-            'message' => 'Producto eliminado'
+            'message' => 'Product removed'
         ], 204);
     }
 }

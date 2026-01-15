@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\LeagueController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\RecoveryController;
 use App\Http\Controllers\Api\ShirtController;
 use App\Http\Controllers\Api\ShirtImageController;
 use App\Http\Controllers\Api\TeamController;
@@ -14,12 +15,19 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+Route::get('/email/verify/{id}/{hash}', [RecoveryController::class, 'verifyEmail'])->middleware('signed')->name('verification.verify');
+
+Route::post('/forgot-password', [RecoveryController::class, 'forgotPassword']);
+Route::post('/reset-password', [RecoveryController::class, 'resetPassword']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', function (Request $request) {
         return response()->json($request->user());
     });
 
     Route::post('/logout', [AuthController::class, 'logout']);
+
+    Route::post('/email/resend', [RecoveryController::class, 'resendVerification']);
 
     Route::get('/leagues', [LeagueController::class, 'index']);
     Route::get('/leagues/{league}', [LeagueController::class, 'show']);

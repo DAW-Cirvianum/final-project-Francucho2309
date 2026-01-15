@@ -80,7 +80,7 @@ class TeamController extends Controller
         $team->delete();
 
         return response()->json([
-            'message' => 'Equipo eliminado'
+            'message' => 'Team removed'
         ], 204);
     }
 }

@@ -90,7 +90,7 @@ class ShirtController extends Controller
         $shirt->delete();
 
         return response()->json([
-            'message' => 'Camiseta eliminada'
+            'message' => 'T-shirt removed'
         ], 204);
     }
 }

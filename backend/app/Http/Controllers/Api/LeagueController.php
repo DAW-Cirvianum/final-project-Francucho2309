@@ -76,7 +76,7 @@ class LeagueController extends Controller
         $league->delete();
 
         return response()->json([
-            'message' => 'Liga eliminada'
+            'message' => 'League removed'
         ], 204);
     }
 }

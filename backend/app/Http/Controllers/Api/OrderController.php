@@ -32,7 +32,7 @@ class OrderController extends Controller
 
         if (!$cart || $cart->items->isEmpty()) {
             return response()->json([
-                'message' => 'Cart está vacío'
+                'message' => 'Cart is empty'
             ], 400);
         }
 
@@ -73,7 +73,7 @@ class OrderController extends Controller
             DB::rollBack();
 
             return response()->json([
-                'message' => 'Pedido fallido'
+                'message' => 'Failed order'
             ], 500);
         }
     }
