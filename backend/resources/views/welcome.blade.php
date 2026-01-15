@@ -23,7 +23,6 @@
             <a href="{{ route('admin.dashboard') }}" class="block bg-green-600 text-white py-2 rounded hover:bg-green-700">Ir al panel</a>
             @else
             <a href="{{ route('login') }}" class="block bg-green-600 text-white py-2 rounded hover:bg-green-700">Iniciar sesión</a>
-            <a href="{{ route('register') }}" class="block bg-green-600 text-white py-2 rounded hover:bg-green-700">Registrate</a>
             @endauth
         </div>
 

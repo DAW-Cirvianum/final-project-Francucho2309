@@ -26,19 +26,6 @@
         @enderror
     </div>
 
-    <div class="flex items-center">
-        <input type="checkbox" name="remember" class="mr-2">
-        <span class="text-sm">Recuerdame</span>
-    </div>
-
     <button class="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">Entrar</button>
-
-    <div class="text-center text-sm mt-4">
-        <a href="{{ route('password.request') }}" class="text-green-600 hover:underline">¿Olvidaste la contraseña?</a>
-    </div>
-
-    <div class="text-center text-sm mt-2">
-        ¿No tienes cuenta? <a href="{{ route('register') }}" class="text-green-600 hover:underline">Registrate</a>
-    </div>
 </form>
 @endsection
