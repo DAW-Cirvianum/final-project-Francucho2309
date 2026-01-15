@@ -55,7 +55,7 @@ class OrderController extends Controller
                     'shirt_id' => $item->shirt_id,
                     'quantity' => $item->quantity,
                     'price' => $price,
-                    'size' => $request->input('size', 'S')
+                    'size' => $item->size
                 ]);
             }
 

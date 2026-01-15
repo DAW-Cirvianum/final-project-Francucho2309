@@ -40,7 +40,7 @@ class TeamController extends Controller
             'league_id' => 'required|exists:leagues,id'
         ]);
 
-        $team = Team::create($request->only('name', 'league_id'));
+        Team::create($request->only('name', 'league_id'));
 
         return redirect()->route('teams.index');
     }

@@ -30,7 +30,10 @@ class ShirtController extends Controller
                 'required',
                 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'
             ],
-            'season' => 'required|string',
+            'season' => [
+                'required',
+                'regex:/^\d{4}\/\d{4}$/'
+            ],
             'price' => 'required|numeric|min:0',
             'team_id' => 'required|exists:teams,id'
         ]);
@@ -64,7 +67,10 @@ class ShirtController extends Controller
                 'required',
                 'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'
             ],
-            'season' => 'required|string',
+            'season' => [
+                'required',
+                'regex:/^\d{4}\/\d{4}$/'
+            ],
             'price' => 'required|numeric|min:0',
             'team_id' => 'required|exists:teams,id'
         ]);

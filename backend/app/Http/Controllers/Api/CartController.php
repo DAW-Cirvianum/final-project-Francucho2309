@@ -23,7 +23,8 @@ class CartController extends Controller
     {
         $request->validate([
             'shirt_id' => 'required|exists:shirts,id',
-            'quantity' => 'required|integer|min:1'
+            'quantity' => 'required|integer|min:1',
+            'size' => 'required|string'
         ]);
 
         $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);
@@ -31,7 +32,8 @@ class CartController extends Controller
         $item = CartItem::updateOrCreate(
             [
                 'cart_id' => $cart->id,
-                'shirt_id' => $request->shirt_id
+                'shirt_id' => $request->shirt_id,
+                'size' => $request->size
             ],
             [
                 'quantity' => $request->quantity
