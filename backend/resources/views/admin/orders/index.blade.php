@@ -19,12 +19,12 @@
         <tbody>
             @foreach($orders as $order)
             <tr class="border-t">
-                <td class="p-2">#{{ $order->id }}</td>
-                <td class="p-2">{{ $order->user->name }}</td>
-                <td class="p-2">{{ $order->user->email }}</td>
-                <td class="p-2">{{ $order->total_price }}</td>
-                <td class="p-2">{{ $order->created_at->format('d/m/Y') }}</td>
-                <td class="p-2">
+                <td class="p-2 text-center">#{{ $order->id }}</td>
+                <td class="p-2 text-center">{{ $order->user->name }}</td>
+                <td class="p-2 text-center">{{ $order->user->email }}</td>
+                <td class="p-2 text-center">{{ $order->total_price }}</td>
+                <td class="p-2 text-center">{{ $order->created_at->format('d/m/Y') }}</td>
+                <td class="p-2 text-center">
                     <a href="{{ route('orders.show', $order) }}" class="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700">Ver</a>
                 </td>
             </tr>
