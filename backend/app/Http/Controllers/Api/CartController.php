@@ -59,4 +59,22 @@ class CartController extends Controller
             'message' => 'Product removed'
         ], 204);
     }
+
+    public function updateItem(Request $request, CartItem $item) {
+        if ($item->cart->user_id !== $request->user()->id) {
+            return response()->json([
+                'message' => 'Forbidden'
+            ], 403);
+        }
+
+        $request->validate([
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $item->update([
+            'quantity' => $request->quantity
+        ]);
+
+        return response()->json($item);
+    }
 }

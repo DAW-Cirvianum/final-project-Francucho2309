@@ -50,11 +50,6 @@
         <p class="text-red-600 text-sm">{{ $message }}</p>
     @enderror
 
-    <div>
-        <label>Imágenes: </label>
-        <input type="file" name="images[]" accept="image/" class="border p-2 w-full" multiple>
-    </div>
-
     <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Añadir</button>
 </form>
 @endsection

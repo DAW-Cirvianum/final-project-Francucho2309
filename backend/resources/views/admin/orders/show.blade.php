@@ -8,7 +8,7 @@
     <p><strong>Pedido:</strong> #{{ $order->id }}</p>
     <p><strong>Usuario:</strong> {{ $order->user->name }} ({{ $order->user->email }})</p>
     <p><strong>Fecha:</strong> {{ $order->created_at->format('d/m/Y H:i') }}</p>
-    <p><strong>Total:</strong> {{ $order->total }} €</p>
+    <p><strong>Total:</strong> {{ $order->total_price }} €</p>
 </div>
 
 <div class="bg-white shadow rounded">
@@ -25,11 +25,11 @@
         <tbody>
             @foreach($order->details as $detail)
             <tr class="border-t">
-                <td class="p-2">{{ $item->shirt->name }}</td>
-                <td class="p-2">{{ $item->shirt->team->name }}</td>
-                <td class="p-2">{{ $item->size }}</td>
-                <td class="p-2">{{ $item->quantity }}</td>
-                <td class="p-2">{{ $item->price }}</td>
+                <td class="p-2">{{ $detail->shirt->name }}</td>
+                <td class="p-2">{{ $detail->shirt->team->name }}</td>
+                <td class="p-2">{{ $detail->size }}</td>
+                <td class="p-2">{{ $detail->quantity }}</td>
+                <td class="p-2">{{ $detail->price }}</td>
             </tr>
             @endforeach
         </tbody>

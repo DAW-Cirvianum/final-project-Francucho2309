@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/teams', [TeamController::class, 'index']);
     Route::get('/teams/{team}', [TeamController::class, 'show']);
+    Route::get('/teams/{team}/shirts', [TeamController::class, 'shirts']);
 
     Route::get('/shirts', [ShirtController::class, 'index']);
     Route::get('/shirts/{shirt}', [ShirtController::class, 'show']);
@@ -41,9 +42,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/cart', [CartController::class, 'show']);
     Route::post('/cart/items', [CartController::class, 'addItem']);
     Route::delete('/cart/items/{item}', [CartController::class, 'removeItem']);
+    Route::put('/cart/items/{item}', [CartController::class, 'updateItem']);
 
     Route::get('/orders', [OrderController::class, 'index']);
     Route::post('/orders', [OrderController::class, 'store']);
+    Route::get('/orders/{order}', [OrderController::class, 'show']);
 });
 
 Route::middleware(['auth:sanctum', 'is_admin'])->group(function () {

@@ -73,8 +73,18 @@ class OrderController extends Controller
             DB::rollBack();
 
             return response()->json([
-                'message' => 'Failed order'
+                'message' => $e
             ], 500);
         }
+    }
+
+    public function show(Order $order, Request $request) {
+        if ($order->user_id !== $request->user()->id) {
+            return response()->json([
+                'message' => 'Forbidden'
+            ], 403);
+        }
+
+        return response()->json($order->load('details.shirt.images'));
     }
 }

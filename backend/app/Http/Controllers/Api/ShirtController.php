@@ -11,12 +11,22 @@ class ShirtController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $shirts = Shirt::with('images', 'team.league')->get();
+        $query = Shirt::with('images', 'team.league');
+
+        if ($request->team_id) {
+            $query->where('team_id', $request->team_id);
+        }
+        
+        if ($request->league_id) {
+            $query->whereHas('team', function ($q) use ($request) {
+                $q->where('league_id', $request->league_id);
+            });
+        }
 
         return response()->json([
-            'data' => $shirts
+            'data' => $query->get()
         ]);
     }
 

@@ -83,4 +83,10 @@ class TeamController extends Controller
             'message' => 'Team removed'
         ], 204);
     }
+
+    public function shirts(Team $team) {
+        return response()->json([
+            $team->shirts()->with('images')->get()
+        ]);
+    }
 }
