@@ -12,7 +12,7 @@ class CartController extends Controller
     public function show(Request $request) {
         $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);
 
-        $cart->load('items.shirt.team.league');
+        $cart->load('items.shirt.images', 'items.shirt.team.league');
 
         return response()->json([
             'data' => $cart
@@ -24,7 +24,7 @@ class CartController extends Controller
         $request->validate([
             'shirt_id' => 'required|exists:shirts,id',
             'quantity' => 'required|integer|min:1',
-            'size' => 'required|string'
+            'size' => 'required|in:S,M,L,XL,XXL'
         ]);
 
         $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);
