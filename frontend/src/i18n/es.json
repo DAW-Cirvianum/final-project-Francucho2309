@@ -1,0 +1,48 @@
+{
+  "navbar": {
+    "search": "Buscar camiseta",
+    "search_button": "Buscar",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión"
+  },
+
+  "filters": {
+    "title": "Filtros",
+    "league": "Liga",
+    "team": "Equipo",
+    "all_league": "Selecciona una liga",
+    "all_team": "Selecciona un equipo"
+  },
+
+  "pages": {
+    "shirts": {
+      "title": "Camisetas"
+    }
+  },
+
+  "shirt": {
+    "size": "Talla",
+    "quantity": "Cantidad",
+    "addCart": "Añadir al carrito"
+  },
+
+  "card": {
+    "button": "Ver"
+  },
+
+  "errors": {
+    "notfound": "Sin camiseta"
+  },
+
+  "shirts": {
+    "size": "Talla",
+    "quantity": "Cantidad",
+    "addToCart": "Añadir al carrito",
+    "loginRequired": "Inicia sesión para comprar"
+  },
+
+  "messages": {
+    "addedToCart": "Producto añadido al carrito"
+  }
+}
