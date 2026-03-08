@@ -37,8 +37,11 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
+<<<<<<< HEAD
     Route::post('/email/resend', [RecoveryController::class, 'resendVerification']);
 
+=======
+>>>>>>> 1c505e11a8fd84585e688e244d13742ea1f4da9d
     Route::get('/cart', [CartController::class, 'show']);
     Route::post('/cart/items', [CartController::class, 'addItem']);
     Route::delete('/cart/items/{item}', [CartController::class, 'removeItem']);
