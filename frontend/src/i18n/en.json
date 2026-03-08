@@ -24,7 +24,8 @@
   "shirt": {
     "size": "Size",
     "quantity": "Quantity",
-    "addCart": "Add to cart"
+    "addCart": "Add to cart",
+    "loginRequired": "Log in to buy"
   },
 
   "card": {

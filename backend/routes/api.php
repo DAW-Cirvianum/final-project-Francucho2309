@@ -20,6 +20,16 @@ Route::get('/email/verify/{id}/{hash}', [RecoveryController::class, 'verifyEmail
 Route::post('/forgot-password', [RecoveryController::class, 'forgotPassword']);
 Route::post('/reset-password', [RecoveryController::class, 'resetPassword']);
 
+Route::get('/leagues', [LeagueController::class, 'index']);
+Route::get('/leagues/{league}', [LeagueController::class, 'show']);
+
+Route::get('/teams', [TeamController::class, 'index']);
+Route::get('/teams/{team}', [TeamController::class, 'show']);
+Route::get('/teams/{team}/shirts', [TeamController::class, 'shirts']);
+
+Route::get('/shirts', [ShirtController::class, 'index']);
+Route::get('/shirts/{shirt}', [ShirtController::class, 'show']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/me', function (Request $request) {
         return response()->json($request->user());
@@ -28,16 +38,6 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
 
     Route::post('/email/resend', [RecoveryController::class, 'resendVerification']);
-
-    Route::get('/leagues', [LeagueController::class, 'index']);
-    Route::get('/leagues/{league}', [LeagueController::class, 'show']);
-
-    Route::get('/teams', [TeamController::class, 'index']);
-    Route::get('/teams/{team}', [TeamController::class, 'show']);
-    Route::get('/teams/{team}/shirts', [TeamController::class, 'shirts']);
-
-    Route::get('/shirts', [ShirtController::class, 'index']);
-    Route::get('/shirts/{shirt}', [ShirtController::class, 'show']);
 
     Route::get('/cart', [CartController::class, 'show']);
     Route::post('/cart/items', [CartController::class, 'addItem']);
