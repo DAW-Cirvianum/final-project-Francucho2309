@@ -1,0 +1,37 @@
+{
+  "navbar": {
+    "search": "Search shirt",
+    "search_button": "Search",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Log out"
+  },
+
+  "filters": {
+    "title": "Filters",
+    "league": "League",
+    "team": "Team",
+    "all_league": "Select a league",
+    "all_team": "Select a team"
+  },
+
+  "pages": {
+    "shirts": {
+      "title": "T-Shirts"
+    }
+  },
+
+  "shirt": {
+    "size": "Size",
+    "quantity": "Quantity",
+    "addCart": "Add to cart"
+  },
+
+  "card": {
+    "button": "Show"
+  },
+
+  "errors": {
+    "notfound": "No shirts"
+  }
+}

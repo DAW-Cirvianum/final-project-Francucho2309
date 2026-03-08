@@ -1,0 +1,37 @@
+{
+  "navbar": {
+    "search": "Cercar samarreta",
+    "search_button": "Cercar",
+    "login": "Iniciar sessió",
+    "register": "Registrar-se",
+    "logout": "Tancar sessió"
+  },
+
+  "filters": {
+    "title": "Filtres",
+    "league": "Lliga",
+    "team": "Equip",
+    "all_league": "Selecciona una lliga",
+    "all_team": "Selecciona un equip"
+  },
+
+  "pages": {
+    "shirts": {
+      "title": "Samarretes"
+    }
+  },
+
+  "shirt": {
+    "size": "Talla",
+    "quantity": "Quantitat",
+    "addCart": "Afegir a la cistella"
+  },
+
+  "card": {
+    "button": "Veure"
+  },
+
+  "errors": {
+    "notfound": "Sense samarretes"
+  }
+}
