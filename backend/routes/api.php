@@ -16,6 +16,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/email/verify/{id}/{hash}', [RecoveryController::class, 'verifyEmail'])->middleware('signed')->name('verification.verify');
+Route::post('/email/resend', [RecoveryController::class, 'resendVerification'])->middleware('auth:sanctum');
 
 Route::post('/forgot-password', [RecoveryController::class, 'forgotPassword']);
 Route::post('/reset-password', [RecoveryController::class, 'resetPassword']);
@@ -37,11 +38,8 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout']);
 
-<<<<<<< HEAD
     Route::post('/email/resend', [RecoveryController::class, 'resendVerification']);
 
-=======
->>>>>>> 1c505e11a8fd84585e688e244d13742ea1f4da9d
     Route::get('/cart', [CartController::class, 'show']);
     Route::post('/cart/items', [CartController::class, 'addItem']);
     Route::delete('/cart/items/{item}', [CartController::class, 'removeItem']);
