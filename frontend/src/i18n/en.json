@@ -1,4 +1,8 @@
 {
+  "loading": {
+    "text": "Loading..."
+  },
+
   "navbar": {
     "search": "Search shirt",
     "search_button": "Search",

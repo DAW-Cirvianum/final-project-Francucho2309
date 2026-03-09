@@ -27,38 +27,48 @@ export default function Register() {
 
   return (
     <div className="container mt-5" style={{ maxWidth: 400 }}>
-      <h3 className="mb-3">{t("auth.register")}</h3>
+      <h2 className="mb-4 text-center">{t("auth.register.title")}</h2>
 
       <form onSubmit={handleSubmit}>
-        <input
-          className="form-control mb-2"
-          placeholder={t("auth.name")}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
+        <div className="mb-3">
+          <label>{t("auth.register.name")}</label>
+          <input
+            className="form-control mb-2"
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+        </div>
 
-        <input
-          className="form-control mb-2"
-          placeholder={t("auth.email")}
-          onChange={(e) => setForm({ ...form, email: e.target.value })}
-        />
+        <div className="mb-3">
+          <label>{t("auth.register.email")}</label>
+          <input
+            className="form-control mb-2"
+            onChange={(e) => setForm({ ...form, email: e.target.value })}
+          />
+        </div>
 
-        <input
-          type="password"
-          className="form-control mb-2"
-          placeholder={t("auth.password")}
-          onChange={(e) => setForm({ ...form, password: e.target.value })}
-        />
+        <div className="mb-3">
+          <label>{t("auth.register.password")}</label>
+          <input
+            type="password"
+            className="form-control mb-2"
+            onChange={(e) => setForm({ ...form, password: e.target.value })}
+          />
+        </div>
 
-        <input
-          type="password"
-          className="form-control mb-3"
-          placeholder={t("auth.confirm")}
-          onChange={(e) =>
-            setForm({ ...form, password_confirmation: e.target.value })
-          }
-        />
+        <div className="mb-3">
+          <label>{t("auth.register.confirm")}</label>
+          <input
+            type="password"
+            className="form-control mb-3"
+            onChange={(e) =>
+              setForm({ ...form, password_confirmation: e.target.value })
+            }
+          />
+        </div>
 
-        <button className="btn btn-dark w-100">{t("auth.register")}</button>
+        <button className="btn btn-success w-100">
+          {t("auth.register.button")}
+        </button>
       </form>
     </div>
   );

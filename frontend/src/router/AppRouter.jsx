@@ -23,10 +23,10 @@ export default function AppRouter() {
           <Route path="/orders" element={<Order />} />
           <Route path="/checkout" element={<Checkout />} />
         </Route>
-      </Route>
 
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
 
       <Route path="*" element={<NotFound />} />
     </Routes>

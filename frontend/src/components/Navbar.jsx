@@ -49,19 +49,6 @@ export default function Navbar() {
         </button>
 
         <div className="collapse navbar-collapse" id="mainNavbar">
-          <form className="d-flex mx-auto my-2 my-lg-0" onSubmit={handleSearch}>
-            <input
-              type="search"
-              className="form-control me-2"
-              placeholder={t("navbar.search")}
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <button type="submit" className="btn btn-success">
-              {t("navbar.search_button")}
-            </button>
-          </form>
-
           <ul className="navbar-nav">
             <li className="nav-item me-3">
               <select
