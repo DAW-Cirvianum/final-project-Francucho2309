@@ -1,4 +1,8 @@
 {
+  "loading": {
+    "text": "Carregant..."
+  },
+
   "navbar": {
     "search": "Cercar samarreta",
     "search_button": "Cercar",

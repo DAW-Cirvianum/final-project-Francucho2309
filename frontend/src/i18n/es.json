@@ -1,4 +1,12 @@
 {
+  "error": {
+    "generic": "Ha ocurrido un error, disculpe las molestias."
+  },
+
+  "loading": {
+    "text": "Cargando..."
+  },
+
   "navbar": {
     "search": "Buscar camiseta",
     "search_button": "Buscar",
@@ -44,5 +52,22 @@
 
   "messages": {
     "addedToCart": "Producto añadido al carrito"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "email": "Correo electrónico:",
+      "password": "Contraseña:",
+      "button": "Entrar"
+    },
+    "register": {
+      "title": "Registrate",
+      "name": "Nombre:",
+      "email": "Correo electrónico:",
+      "password": "Contraseña:",
+      "confirm": "Confirmar contraseña:",
+      "button": "Registrarse"
+    }
   }
 }

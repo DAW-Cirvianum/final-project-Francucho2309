@@ -53,7 +53,7 @@ export default function Shirts() {
   }, []);
 
   if (loading) {
-    return <p className="text-center mt-5">Loading...</p>;
+    return <p className="text-center mt-5">{t("loading.text")}</p>;
   }
 
   if (error) {
@@ -95,7 +95,7 @@ export default function Shirts() {
             <option value="">{t("filters.all_team")}</option>
             {teams
               .filter(
-                (team) => !selectedLeague || team.league_id == selectedLeague
+                (team) => !selectedLeague || team.league_id == selectedLeague,
               )
               .map((team) => (
                 <option key={team.id} value={team.id}>
@@ -126,7 +126,9 @@ export default function Shirts() {
                     alt={shirt.name}
                   />
                   <div className="card-body text-center">
-                    <h6 className="card-title">{shirt.name}</h6>
+                    <h6 className="card-title">
+                      {shirt.name} {shirt.season} {shirt.team?.name}
+                    </h6>
                     <p className="text-success fw-bold">{shirt.price} €</p>
                     <Link
                       to={`/shirts/${shirt.id}`}

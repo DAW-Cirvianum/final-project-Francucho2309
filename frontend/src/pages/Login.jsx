@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { useTranslation } from "react-i18next";
 
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
+
+  const { t } = useTranslation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +18,7 @@ export default function Login() {
 
     try {
       await login(email, password);
-      navigate("/shirts"); // 🔥 IMPORTANTE
+      navigate("/shirts");
     } catch {
       setError("Credenciales incorrectas");
     }
@@ -23,13 +26,13 @@ export default function Login() {
 
   return (
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
-      <h2 className="mb-4 text-center">Iniciar sesión</h2>
+      <h2 className="mb-4 text-center">{t("auth.login.title")}</h2>
 
       {error && <div className="alert alert-danger">{error}</div>}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label>Email</label>
+          <label>{t("auth.login.email")}</label>
           <input
             type="email"
             className="form-control"
@@ -40,7 +43,7 @@ export default function Login() {
         </div>
 
         <div className="mb-3">
-          <label>Contraseña</label>
+          <label>{t("auth.login.password")}</label>
           <input
             type="password"
             className="form-control"
@@ -50,7 +53,9 @@ export default function Login() {
           />
         </div>
 
-        <button className="btn btn-success w-100">Entrar</button>
+        <button className="btn btn-success w-100">
+          {t("auth.login.button")}
+        </button>
       </form>
     </div>
   );
