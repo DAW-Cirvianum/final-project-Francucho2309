@@ -18,7 +18,7 @@ class RecoveryController extends Controller
 
         $user = User::findOrFail($id);
 
-        if (! hash_equals(
+        if (!hash_equals(
             sha1($user->getEmailForVerification()),
             $hash
         )) {

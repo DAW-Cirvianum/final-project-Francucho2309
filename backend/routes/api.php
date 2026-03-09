@@ -16,6 +16,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
 Route::get('/email/verify/{id}/{hash}', [RecoveryController::class, 'verifyEmail'])->middleware('signed')->name('verification.verify');
+Route::post('/email/resend', [RecoveryController::class, 'resendVerification'])->middleware('auth:sanctum');
 
 Route::post('/forgot-password', [RecoveryController::class, 'forgotPassword']);
 Route::post('/reset-password', [RecoveryController::class, 'resetPassword']);
