@@ -24,7 +24,8 @@
   "shirt": {
     "size": "Talla",
     "quantity": "Cantidad",
-    "addCart": "Añadir al carrito"
+    "addCart": "Añadir al carrito",
+    "loginRequired": "Inicia sesión para comprar"
   },
 
   "card": {
@@ -38,8 +39,7 @@
   "shirts": {
     "size": "Talla",
     "quantity": "Cantidad",
-    "addToCart": "Añadir al carrito",
-    "loginRequired": "Inicia sesión para comprar"
+    "addToCart": "Añadir al carrito"
   },
 
   "messages": {

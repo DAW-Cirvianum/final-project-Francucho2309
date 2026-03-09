@@ -24,7 +24,8 @@
   "shirt": {
     "size": "Talla",
     "quantity": "Quantitat",
-    "addCart": "Afegir a la cistella"
+    "addCart": "Afegir a la cistella",
+    "loginRequired": "Inicia sessió per comprar"
   },
 
   "card": {
