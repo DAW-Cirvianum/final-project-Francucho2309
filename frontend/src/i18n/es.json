@@ -4,7 +4,8 @@
   },
 
   "loading": {
-    "text": "Cargando..."
+    "shirt": "Cargando...",
+    "cart": "Cargando carrito..."
   },
 
   "navbar": {
@@ -69,5 +70,11 @@
       "confirm": "Confirmar contraseña:",
       "button": "Registrarse"
     }
+  },
+
+  "cart": {
+    "empty": "Carrito vacío.",
+    "title": "Carrito",
+    "finish": "Siguiente"
   }
 }

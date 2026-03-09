@@ -1,6 +1,7 @@
 {
   "loading": {
-    "text": "Carregant..."
+    "shirt": "Carregant...",
+    "cart": "Carregant carret..."
   },
 
   "navbar": {
@@ -38,5 +39,28 @@
 
   "errors": {
     "notfound": "Sense samarretes"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Iniciar sessió",
+      "email": "Correu electrònic:",
+      "password": "Contrasenya:",
+      "button": "Entrar"
+    },
+    "register": {
+      "title": "Registra't",
+      "name": "Nom:",
+      "email": "Correu electrònic:",
+      "password": "Contrasenya:",
+      "confirm": "Confirmar contrasenya:",
+      "button": "Registrar-se"
+    }
+  },
+
+  "cart": {
+    "empty": "Carret buit.",
+    "title": "Carret",
+    "finish": "Següent"
   }
 }

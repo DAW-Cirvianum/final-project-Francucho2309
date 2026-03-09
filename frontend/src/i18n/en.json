@@ -1,6 +1,7 @@
 {
   "loading": {
-    "text": "Loading..."
+    "shirt": "Loading...",
+    "cart": "Loading cart..."
   },
 
   "navbar": {
@@ -38,5 +39,28 @@
 
   "errors": {
     "notfound": "No shirts"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Login",
+      "email": "Email:",
+      "password": "Password:",
+      "button": "Continue"
+    },
+    "register": {
+      "title": "Register",
+      "name": "Name:",
+      "email": "Email:",
+      "password": "Password:",
+      "confirm": "Confirm password:",
+      "button": "Continue"
+    }
+  },
+
+  "cart": {
+    "empty": "Empty cart.",
+    "title": "Cart",
+    "finish": "Continue"
   }
 }

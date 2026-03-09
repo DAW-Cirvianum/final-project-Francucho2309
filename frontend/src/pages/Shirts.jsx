@@ -53,7 +53,7 @@ export default function Shirts() {
   }, []);
 
   if (loading) {
-    return <p className="text-center mt-5">{t("loading.text")}</p>;
+    return <p className="text-center mt-5">{t("loading.shirt")}</p>;
   }
 
   if (error) {
