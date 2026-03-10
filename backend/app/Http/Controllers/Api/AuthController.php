@@ -12,9 +12,16 @@ class AuthController extends Controller
 {
     public function register(Request $request) {
         $request->validate([
-            'name' => 'required|string',
+            'name' => [
+                'required',
+                'regex:/^(?=.*[A-Za-z])[A-Za-z0-9\s]+$/'
+            ],
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed|min:6'
+            'password' => [
+                'nullable',
+                'min:8',
+                'confirmed'
+            ]
         ]);
 
         $user = User::create([
