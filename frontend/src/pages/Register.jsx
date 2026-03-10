@@ -13,6 +13,7 @@ export default function Register() {
     password: "",
     password_confirmation: "",
   });
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,8 +21,9 @@ export default function Register() {
     try {
       await api.post("/register", form);
       navigate("/login");
-    } catch {
-      alert(t("errors.generic"));
+    } catch (error) {
+      // alert(t("errors.generic"));
+      console.log(error.response.data);
     }
   };
 
@@ -34,6 +36,7 @@ export default function Register() {
           <label>{t("auth.register.name")}</label>
           <input
             className="form-control mb-2"
+            value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
           />
         </div>
@@ -42,6 +45,7 @@ export default function Register() {
           <label>{t("auth.register.email")}</label>
           <input
             className="form-control mb-2"
+            value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
           />
         </div>
@@ -51,6 +55,7 @@ export default function Register() {
           <input
             type="password"
             className="form-control mb-2"
+            value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
           />
         </div>
@@ -60,6 +65,7 @@ export default function Register() {
           <input
             type="password"
             className="form-control mb-3"
+            value={form.password_confirmation}
             onChange={(e) =>
               setForm({ ...form, password_confirmation: e.target.value })
             }

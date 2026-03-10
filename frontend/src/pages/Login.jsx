@@ -19,11 +19,11 @@ export default function Login() {
     try {
       await login(email, password);
       navigate("/shirts");
-    } catch {
+    } catch (error) {
       if (error.response?.status === 403) {
         setError("Debes verificar tu correo antes de iniciar sesión.");
       } else {
-        setError("Credenciales incorrectas");
+        setError("Correo o contraseña incorrectas");
       }
     }
   };
