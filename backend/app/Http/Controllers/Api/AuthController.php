@@ -18,7 +18,8 @@ class AuthController extends Controller
             ],
             'email' => 'required|email|unique:users',
             'password' => [
-                'nullable',
+                'required',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]+$/',
                 'min:8',
                 'confirmed'
             ]
