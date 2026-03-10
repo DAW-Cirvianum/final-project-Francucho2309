@@ -21,9 +21,12 @@ export default function Login() {
       navigate("/shirts");
     } catch (error) {
       if (error.response?.status === 403) {
-        setError([t("error.login.verify_email")]);
+        setError([t("error.verify_email")]);
+      } else if (error.response?.data?.errors) {
+        const errors = Object.values(error.response.data.errors).flat();
+        setError(errors);
       } else {
-        setError([t("error.login.invalid_credential")]);
+        setError([t("error.generic")]);
       }
     }
   };
@@ -35,15 +38,14 @@ export default function Login() {
       {error.length > 0 &&
         error.map((err, index) => (
           <div key={index} className="alert alert-danger">
-            {err}
+            {t(err)}
           </div>
         ))}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label>{t("auth.login.email")}</label>
+          <label>{t("auth.email")}</label>
           <input
-            type="email"
             className="form-control"
             value={email}
             onChange={(e) => {
@@ -55,7 +57,7 @@ export default function Login() {
         </div>
 
         <div className="mb-3">
-          <label>{t("auth.login.password")}</label>
+          <label>{t("auth.password")}</label>
           <input
             type="password"
             className="form-control"

@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
 
   const login = async (email, password) => {
     const res = await api.post("/login", {
-      login: email,
+      email: email,
       password,
     });
 
@@ -48,7 +48,7 @@ export function AuthProvider({ children }) {
             headers: {
               Authorization: `Bearer ${token}`,
             },
-          }
+          },
         );
       }
     } catch (e) {}

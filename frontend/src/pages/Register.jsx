@@ -44,7 +44,7 @@ export default function Register() {
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
-          <label>{t("auth.register.name")}</label>
+          <label>{t("auth.name")}</label>
           <input
             className="form-control mb-2"
             value={form.name}
@@ -57,7 +57,7 @@ export default function Register() {
         </div>
 
         <div className="mb-3">
-          <label>{t("auth.register.email")}</label>
+          <label>{t("auth.email")}</label>
           <input
             className="form-control mb-2"
             value={form.email}
@@ -70,7 +70,7 @@ export default function Register() {
         </div>
 
         <div className="mb-3">
-          <label>{t("auth.register.password")}</label>
+          <label>{t("auth.password")}</label>
           <input
             type="password"
             className="form-control mb-2"
@@ -84,7 +84,7 @@ export default function Register() {
         </div>
 
         <div className="mb-3">
-          <label>{t("auth.register.confirm")}</label>
+          <label>{t("auth.confirm")}</label>
           <input
             type="password"
             className="form-control mb-3"
