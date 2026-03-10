@@ -110,7 +110,7 @@ export default function Shirts() {
         <h3 className="mb-4">{t("pages.shirts.title")}</h3>
 
         {shirts.length === 0 ? (
-          <p className="text-muted text-center">{t("errors.notfound")}</p>
+          <p className="text-muted text-center">{t("error.notfound")}</p>
         ) : (
           <div className="row g-3">
             {shirts.map((shirt) => (
