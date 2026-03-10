@@ -1,7 +1,19 @@
 {
   "error": {
     "generic": "Ha ocurrido un error, disculpe las molestias.",
-    "notfound": "Sin camiseta"
+    "notfound": "Sin camiseta",
+    "register": {
+      "regex_name": "El nombre debe contener al menos una letra y puede incluir letras, números y espacios.",
+      "invalid_email": "El correo electrónico no tiene un formato válido.",
+      "unique_email": "El correo electrónico ya está registrado.",
+      "regex_password": "La contraseña debe contener al menos una letra mayúscula, una letra minúscula y un número.",
+      "min_password": "La contraseña debe tener al menos 8 caracteres.",
+      "confirm_password": "La confirmación de la contraseña no coincide."
+    },
+    "login": {
+      "verify_email": "Debes verificar tu correo antes de iniciar sesión.",
+      "invalid_credential": "Correo o contraseña incorrectas."
+    }
   },
 
   "loading": {

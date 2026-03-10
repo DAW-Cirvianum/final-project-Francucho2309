@@ -11,7 +11,7 @@ export default function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [error, setError] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,9 +21,9 @@ export default function Login() {
       navigate("/shirts");
     } catch (error) {
       if (error.response?.status === 403) {
-        setError("Debes verificar tu correo antes de iniciar sesión.");
+        setError([t("error.login.verify_email")]);
       } else {
-        setError("Correo o contraseña incorrectas");
+        setError([t("error.login.invalid_credential")]);
       }
     }
   };
@@ -32,7 +32,12 @@ export default function Login() {
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">{t("auth.login.title")}</h2>
 
-      {error && <div className="alert alert-danger">{error}</div>}
+      {error.length > 0 &&
+        error.map((err, index) => (
+          <div key={index} className="alert alert-danger">
+            {err}
+          </div>
+        ))}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -41,7 +46,10 @@ export default function Login() {
             type="email"
             className="form-control"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setError([]);
+            }}
             required
           />
         </div>
@@ -52,7 +60,10 @@ export default function Login() {
             type="password"
             className="form-control"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError([]);
+            }}
             required
           />
         </div>

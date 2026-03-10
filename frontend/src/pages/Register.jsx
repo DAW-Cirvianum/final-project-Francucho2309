@@ -38,7 +38,7 @@ export default function Register() {
       {error.length > 0 &&
         error.map((err, index) => (
           <div key={index} className="alert alert-danger">
-            {err}
+            {t(err)}
           </div>
         ))}
 
@@ -48,7 +48,10 @@ export default function Register() {
           <input
             className="form-control mb-2"
             value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            onChange={(e) => {
+              setForm({ ...form, name: e.target.value });
+              setError([]);
+            }}
             required
           />
         </div>
@@ -58,7 +61,10 @@ export default function Register() {
           <input
             className="form-control mb-2"
             value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={(e) => {
+              setForm({ ...form, email: e.target.value });
+              setError([]);
+            }}
             required
           />
         </div>
@@ -69,7 +75,10 @@ export default function Register() {
             type="password"
             className="form-control mb-2"
             value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
+            onChange={(e) => {
+              setForm({ ...form, password: e.target.value });
+              setError([]);
+            }}
             required
           />
         </div>
@@ -80,9 +89,10 @@ export default function Register() {
             type="password"
             className="form-control mb-3"
             value={form.password_confirmation}
-            onChange={(e) =>
-              setForm({ ...form, password_confirmation: e.target.value })
-            }
+            onChange={(e) => {
+              setForm({ ...form, password_confirmation: e.target.value });
+              setError([]);
+            }}
             required
           />
         </div>
