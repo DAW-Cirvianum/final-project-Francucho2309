@@ -13,7 +13,7 @@ export default function Register() {
     password: "",
     password_confirmation: "",
   });
-  const [error, setError] = useState(null);
+  const [error, setError] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,14 +22,25 @@ export default function Register() {
       await api.post("/register", form);
       navigate("/login");
     } catch (error) {
-      // alert(t("errors.generic"));
-      console.log(error.response.data);
+      if (error.response?.data?.errors) {
+        const errors = Object.values(error.response.data.errors).flat();
+        setError(errors);
+      } else {
+        setError([t("error.generic")]);
+      }
     }
   };
 
   return (
     <div className="container mt-5" style={{ maxWidth: 400 }}>
       <h2 className="mb-4 text-center">{t("auth.register.title")}</h2>
+
+      {error.length > 0 &&
+        error.map((err, index) => (
+          <div key={index} className="alert alert-danger">
+            {err}
+          </div>
+        ))}
 
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
@@ -38,6 +49,7 @@ export default function Register() {
             className="form-control mb-2"
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
+            required
           />
         </div>
 
@@ -47,6 +59,7 @@ export default function Register() {
             className="form-control mb-2"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
+            required
           />
         </div>
 
@@ -57,6 +70,7 @@ export default function Register() {
             className="form-control mb-2"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
+            required
           />
         </div>
 
@@ -69,6 +83,7 @@ export default function Register() {
             onChange={(e) =>
               setForm({ ...form, password_confirmation: e.target.value })
             }
+            required
           />
         </div>
 

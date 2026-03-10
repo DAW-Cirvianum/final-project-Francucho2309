@@ -1,6 +1,7 @@
 {
   "error": {
-    "generic": "Ha ocurrido un error, disculpe las molestias."
+    "generic": "Ha ocurrido un error, disculpe las molestias.",
+    "notfound": "Sin camiseta"
   },
 
   "loading": {
@@ -39,10 +40,6 @@
 
   "card": {
     "button": "Ver"
-  },
-
-  "errors": {
-    "notfound": "Sin camiseta"
   },
 
   "shirts": {
