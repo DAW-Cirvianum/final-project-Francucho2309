@@ -24,12 +24,12 @@ class AuthController extends Controller
                 'confirmed'
             ]
         ], [
-            'name.regex' => 'error.register.regex_name',
-            'email.email' => 'error.register.invalid_email',
-            'email.unique' => 'error.register.unique_email',
-            'password.regex' => 'error.register.regex_password',
-            'password.min' => 'error.register.min_password',
-            'password.confirmed' => 'error.register.confirm_password'
+            'name.regex' => 'error.regex_name',
+            'email.email' => 'error.invalid_email',
+            'email.unique' => 'error.unique_email',
+            'password.regex' => 'error.regex_password',
+            'password.min' => 'error.min_password',
+            'password.confirmed' => 'error.confirm_password'
         ]);
 
         $user = User::create([
@@ -56,9 +56,9 @@ class AuthController extends Controller
                 'min:8'
             ]
         ], [
-            'email.email' => 'error.login.invalid_email',
-            'password.regex' => 'error.login.regex_password',
-            'password.min' => 'error.register.min_password'
+            'email.email' => 'error.invalid_email',
+            'password.regex' => 'error.regex_password',
+            'password.min' => 'error.min_password'
         ]);
 
         $user = User::where('email', $request->email)->orWhere('name', $request->email)->first();
