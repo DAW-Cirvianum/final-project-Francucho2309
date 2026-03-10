@@ -49,15 +49,23 @@ class AuthController extends Controller
 
     public function login(Request $request) {
         $request->validate([
-            'login' => 'required',
-            'password' => 'required'
+            'email' => 'required|email',
+            'password' => [
+                'required',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]+$/',
+                'min:8'
+            ]
+        ], [
+            'email.email' => 'error.login.invalid_email',
+            'password.regex' => 'error.login.regex_password',
+            'password.min' => 'error.register.min_password'
         ]);
 
         $user = User::where('email', $request->login)->orWhere('name', $request->login)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
-                'login' => ['Invalid credentials'],
+                'email' => ['Invalid credentials'],
             ]);
         }
 
