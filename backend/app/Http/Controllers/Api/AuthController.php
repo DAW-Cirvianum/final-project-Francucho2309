@@ -61,11 +61,11 @@ class AuthController extends Controller
             'password.min' => 'error.register.min_password'
         ]);
 
-        $user = User::where('email', $request->login)->orWhere('name', $request->login)->first();
+        $user = User::where('email', $request->email)->orWhere('name', $request->email)->first();
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
-                'email' => ['Invalid credentials'],
+                'email' => ['error.invalid_credential'],
             ]);
         }
 
