@@ -23,6 +23,13 @@ class AuthController extends Controller
                 'min:8',
                 'confirmed'
             ]
+        ], [
+            'name.regex' => 'error.register.regex_name',
+            'email.email' => 'error.register.invalid_email',
+            'email.unique' => 'error.register.unique_email',
+            'password.regex' => 'error.register.regex_password',
+            'password.min' => 'error.register.min_password',
+            'password.confirmed' => 'error.register.confirm_password'
         ]);
 
         $user = User::create([
