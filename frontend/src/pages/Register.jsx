@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 export default function Register() {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const [message, setMessage] = useState([]);
+  const [messageType, setMessageType] = useState(null);
 
   const [form, setForm] = useState({
     name: "",
@@ -13,21 +15,27 @@ export default function Register() {
     password: "",
     password_confirmation: "",
   });
-  const [error, setError] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await api.post("/register", form);
-      navigate("/login");
+      const response = await api.post("/register", form);
+
+      navigate("/login", {
+        state: {
+          message: response.data.message,
+          type: "success",
+        },
+      });
     } catch (error) {
       if (error.response?.data?.errors) {
         const errors = Object.values(error.response.data.errors).flat();
-        setError(errors);
+        setMessage(errors);
       } else {
-        setError([t("error.generic")]);
+        setMessage([t("error.generic")]);
       }
+      setMessageType("danger");
     }
   };
 
@@ -35,10 +43,10 @@ export default function Register() {
     <div className="container mt-5" style={{ maxWidth: 400 }}>
       <h2 className="mb-4 text-center">{t("auth.register.title")}</h2>
 
-      {error.length > 0 &&
-        error.map((err, index) => (
-          <div key={index} className="alert alert-danger">
-            {t(err)}
+      {message.length > 0 &&
+        message.map((text, index) => (
+          <div key={index} className={`alert alert-${messageType}`}>
+            {t(text)}
           </div>
         ))}
 
@@ -50,7 +58,7 @@ export default function Register() {
             value={form.name}
             onChange={(e) => {
               setForm({ ...form, name: e.target.value });
-              setError([]);
+              setMessage([]);
             }}
             required
           />
@@ -63,7 +71,7 @@ export default function Register() {
             value={form.email}
             onChange={(e) => {
               setForm({ ...form, email: e.target.value });
-              setError([]);
+              setMessage([]);
             }}
             required
           />
@@ -77,7 +85,7 @@ export default function Register() {
             value={form.password}
             onChange={(e) => {
               setForm({ ...form, password: e.target.value });
-              setError([]);
+              setMessage([]);
             }}
             required
           />
@@ -91,7 +99,7 @@ export default function Register() {
             value={form.password_confirmation}
             onChange={(e) => {
               setForm({ ...form, password_confirmation: e.target.value });
-              setError([]);
+              setMessage([]);
             }}
             required
           />

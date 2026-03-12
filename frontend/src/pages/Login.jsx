@@ -1,11 +1,18 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useTranslation } from "react-i18next";
 
 export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const message = location.state?.message;
+  const messageType = location.state?.type;
+
+  const [textMessage, setTextMessage] = useState(message);
+  const [typeMessage, setTypeMessage] = useState(messageType);
 
   const { t } = useTranslation();
 
@@ -31,9 +38,23 @@ export default function Login() {
     }
   };
 
+  useEffect(() => {
+    if (textMessage) {
+      const timer = setTimeout(() => {
+        setTextMessage(null);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [typeMessage]);
+
   return (
     <div className="container mt-5" style={{ maxWidth: "400px" }}>
       <h2 className="mb-4 text-center">{t("auth.login.title")}</h2>
+
+      {textMessage && (
+        <div className={`alert alert-${typeMessage}`}>{t(textMessage)}</div>
+      )}
 
       {error.length > 0 &&
         error.map((err, index) => (

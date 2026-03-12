@@ -15,22 +15,39 @@ export default function ShirtDetail() {
   const [size, setSize] = useState("S");
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [message, setMessage] = useState(null);
+  const [messageType, setMessageType] = useState(null);
+
+  const handleAddToCart = async () => {
+    try {
+      setTimeout(() => {
+        setMessage(null);
+      }, 3000);
+
+      await addToCart(shirt.id, quantity, size);
+
+      setMessage(t("shirt.success"));
+      setMessageType("success");
+    } catch (error) {
+      if (error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage(t("error.generic"));
+      }
+      setMessageType("danger");
+    }
+  };
 
   useEffect(() => {
     api
       .get(`/shirts/${id}`)
       .then((response) => setShirt(response.data.data ?? response.data))
-      .catch(() => setError(t("errors.notfound")))
+      .catch(() => setMessage(t("errors.notfound")))
       .finally(() => setLoading(false));
   }, [id, t]);
 
   if (loading) {
     return <p className="text-center mt-5">{t("loaging.item")}</p>;
-  }
-
-  if (error) {
-    return <p className="text-center mt-5">{error}</p>;
   }
 
   return (
@@ -86,11 +103,15 @@ export default function ShirtDetail() {
 
           <button
             className="btn btn-success w-100"
-            onClick={() => addToCart(shirt.id, quantity, size)}
+            onClick={handleAddToCart}
             disabled={!token}
           >
             {token ? t("shirt.addCart") : t("shirt.loginRequired")}
           </button>
+
+          {message && (
+            <div className={`alert alert-${messageType} mt-3`}>{message}</div>
+          )}
         </div>
       </div>
     </div>
