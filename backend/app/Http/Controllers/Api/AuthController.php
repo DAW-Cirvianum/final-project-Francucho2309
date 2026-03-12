@@ -42,7 +42,7 @@ class AuthController extends Controller
         $user->sendEmailVerificationNotification();
 
         return response()->json([
-            'message' => 'User created. Verify your email.',
+            'message' => 'auth.register.success',
             'user' => $user,
         ], 201);
     }
