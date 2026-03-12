@@ -53,7 +53,7 @@ export default function Shirts() {
   }, []);
 
   if (loading) {
-    return <p className="text-center mt-5">{t("loading.shirt")}</p>;
+    return <p className="text-center mt-5">{t("loading.item")}</p>;
   }
 
   if (error) {
@@ -127,7 +127,7 @@ export default function Shirts() {
                   />
                   <div className="card-body text-center">
                     <h6 className="card-title">
-                      {shirt.name} {shirt.season} {shirt.team?.name}
+                      {shirt.name} {shirt.team.name} {shirt.season}
                     </h6>
                     <p className="text-success fw-bold">{shirt.price} €</p>
                     <Link

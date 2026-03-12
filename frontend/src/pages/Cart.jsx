@@ -12,7 +12,7 @@ export default function Cart() {
   };
 
   if (loading) {
-    return <p className="text-center mt-5">{t("loading.cart")}</p>;
+    return <p className="text-center mt-5">{t("loading.item")}</p>;
   }
 
   if (!cart) {
@@ -35,17 +35,25 @@ export default function Cart() {
       {cart.items.map((item) => (
         <div
           key={item.id}
-          className="d-flex align-items-center mb-3 border p-2"
+          className="d-flex align-items-center mb-3 border p-2 rounded-3"
         >
           <img
             src={`http://localhost/storage/${item.shirt.images[0]?.image_path}`}
-            width="80"
+            width="200"
+            className="rounded-3"
           />
 
           <div className="ms-3 flex-grow-1">
-            <h6>{item.shirt.name}</h6>
-            <p>Talla: {item.size}</p>
-            <p>{item.shirt?.price} €</p>
+            <h6 className="fw-bold fs-4">
+              {item.shirt.name} {item.shirt.team.name} {item.shirt.season}
+            </h6>
+            <p>
+              <span className="fw-bold">{t("shirt.size")}:</span> {item.size}
+            </p>
+            <p>
+              <span className="fw-bold">{t("shirt.price")}:</span>{" "}
+              {item.shirt?.price} €
+            </p>
 
             <input
               type="number"

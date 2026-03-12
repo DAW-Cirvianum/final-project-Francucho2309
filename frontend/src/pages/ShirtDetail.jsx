@@ -26,7 +26,7 @@ export default function ShirtDetail() {
   }, [id, t]);
 
   if (loading) {
-    return <p className="text-center mt-5">Loading...</p>;
+    return <p className="text-center mt-5">{t("loaging.item")}</p>;
   }
 
   if (error) {
@@ -49,9 +49,11 @@ export default function ShirtDetail() {
         </div>
 
         <div className="col-md-6">
-          <h2>{shirt.name}</h2>
+          <h2>
+            {shirt.name} {shirt.team.name} {shirt.season}
+          </h2>
           <p className="text-muted">
-            {shirt.team?.name} . {shirt.team?.league?.name}
+            {shirt.team.name} . {shirt.team.league.name}
           </p>
 
           <h4 className="text-success fw-bold mb-3">{shirt.price} €</h4>

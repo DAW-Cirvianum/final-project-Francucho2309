@@ -13,8 +13,7 @@
   },
 
   "loading": {
-    "shirt": "Cargando...",
-    "cart": "Cargando carrito..."
+    "item": "Cargando..."
   },
 
   "navbar": {
@@ -41,6 +40,7 @@
 
   "shirt": {
     "size": "Talla",
+    "price": "Precio",
     "quantity": "Cantidad",
     "addCart": "Añadir al carrito",
     "loginRequired": "Inicia sesión para comprar"
@@ -48,12 +48,6 @@
 
   "card": {
     "button": "Ver"
-  },
-
-  "shirts": {
-    "size": "Talla",
-    "quantity": "Cantidad",
-    "addToCart": "Añadir al carrito"
   },
 
   "messages": {
@@ -78,6 +72,8 @@
   "cart": {
     "empty": "Carrito vacío.",
     "title": "Carrito",
-    "finish": "Siguiente"
+    "finish": "Siguiente",
+    "checkout": "Confirmar pedido",
+    "confirm": "Confirmar"
   }
 }
