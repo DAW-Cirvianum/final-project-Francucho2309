@@ -1,1 +1,100 @@
-{}
+{
+  "error": {
+    "generic": "S'ha produït un error, disculpeu les molèsties.",
+    "notfound": "Sense samarreta",
+    "regex_name": "El nom ha de contenir almenys una lletra i pot incloure lletres, números i espais.",
+    "invalid_email": "L'adreça de correu electrònic no té un format vàlid.",
+    "unique_email": "L'adreça de correu electrònic ja està registrada.",
+    "regex_password": "La contrasenya ha de contenir almenys una lletra majúscula, una lletra minúscula i un número.",
+    "min_password": "La contrasenya ha de tenir almenys 8 caràcters.",
+    "confirm_password": "La confirmació de la contrasenya no coincideix.",
+    "verify_email": "Has de verificar el teu correu electrònic abans d'iniciar sessió.",
+    "invalid_credential": "Correu electrònic o contrasenya incorrectes."
+  },
+
+  "loading": {
+    "item": "Carregant..."
+  },
+
+  "navbar": {
+    "search": "Cerca una samarreta",
+    "search_button": "Cerca",
+    "login": "Iniciar sessió",
+    "register": "Registrar-se",
+    "logout": "Tancar sessió",
+    "orders": "Les meves comandes"
+  },
+
+  "filters": {
+    "title": "Filtres",
+    "league": "Lliga",
+    "team": "Equip",
+    "all_league": "Selecciona una lliga",
+    "all_team": "Selecciona un equip"
+  },
+
+  "pages": {
+    "shirts": {
+      "title": "Samarretes"
+    }
+  },
+
+  "shirt": {
+    "size": "Talla",
+    "price": "Preu",
+    "quantity": "Quantitat",
+    "addCart": "Afegir al carret",
+    "loginRequired": "Inicia sessió per comprar",
+    "success": "Producte afegit al carret",
+    "checkout": "Confirmar comanda",
+    "confirm": "Confirmar"
+  },
+
+  "card": {
+    "button": "Veure"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Iniciar sessió",
+      "button": "Entrar"
+    },
+    "name": "Nom:",
+    "email": "Correu electrònic:",
+    "password": "Contrasenya:",
+    "confirm": "Confirmar contrasenya:",
+    "register": {
+      "title": "Registra't",
+      "button": "Registrar-se",
+      "success": "Usuari creat. Revisa el teu correu."
+    }
+  },
+
+  "cart": {
+    "empty": "Carret buit.",
+    "title": "Carret",
+    "finish": "Següent",
+    "checkout": "Confirmar comanda",
+    "confirm": "Confirmar"
+  },
+
+  "checkout": {
+    "shipping": "Dades d'enviament",
+    "address": "Adreça:",
+    "city": "Ciutat:",
+    "province": "Província:",
+    "postal": "Codi postal:",
+    "country": "País:",
+    "phone": "Telèfon de contacte:",
+    "summary": "Resum",
+    "all_country": "Selecciona un país"
+  },
+
+  "order": {
+    "title": "Les meves comandes",
+    "item": "Comanda",
+    "show": "Veure detalls",
+    "success": "Comanda realitzada correctament.",
+    "product": "Producte"
+  }
+}
