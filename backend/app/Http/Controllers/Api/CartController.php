@@ -25,6 +25,8 @@ class CartController extends Controller
             'shirt_id' => 'required|exists:shirts,id',
             'quantity' => 'required|integer|min:1',
             'size' => 'required|in:S,M,L,XL,XXL'
+        ], [
+            'quantity.min' => 'error.quantity'
         ]);
 
         $cart = Cart::firstOrCreate(['user_id' => $request->user()->id]);

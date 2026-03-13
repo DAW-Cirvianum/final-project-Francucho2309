@@ -71,7 +71,7 @@ class AuthController extends Controller
 
         if (!$user->hasVerifiedEmail()) {
             return response()->json([
-                'message' => 'Email not verified. Please check your email.'
+                'message' => 'error.verify_email'
             ], 403);
         }
 
