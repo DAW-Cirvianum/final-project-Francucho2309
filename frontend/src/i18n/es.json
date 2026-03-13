@@ -88,5 +88,12 @@
     "phone": "Teléfono de contacto:",
     "summary": "Resumen",
     "all_country": "Selecciona un país"
+  },
+
+  "order": {
+    "title": "Mis pedidos",
+    "item": "Pedido",
+    "show": "Ver detalles",
+    "success": "Pedido realizado correctamente."
   }
 }

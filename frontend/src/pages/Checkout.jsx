@@ -33,8 +33,12 @@ export default function Checkout() {
         headers: { Authorization: `Bearer ${token}` },
       });
 
-      navigate("/orders");
-      loadCart();
+      navigate("/orders", {
+        state: {
+          message: "order.success",
+        },
+      });
+      await loadCart();
     } catch {
       setMessage("error.generic");
     }
