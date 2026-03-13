@@ -21,7 +21,8 @@
     "search_button": "Buscar",
     "login": "Iniciar sesión",
     "register": "Registrarse",
-    "logout": "Cerrar sesión"
+    "logout": "Cerrar sesión",
+    "orders": "Mis pedidos"
   },
 
   "filters": {
@@ -44,7 +45,9 @@
     "quantity": "Cantidad",
     "addCart": "Añadir al carrito",
     "loginRequired": "Inicia sesión para comprar",
-    "success": "Producto añadido al carrito"
+    "success": "Producto añadido al carrito",
+    "checkout": "Confirmar pedido",
+    "confirm": "Confirmar"
   },
 
   "card": {
@@ -73,5 +76,17 @@
     "finish": "Siguiente",
     "checkout": "Confirmar pedido",
     "confirm": "Confirmar"
+  },
+
+  "checkout": {
+    "shipping": "Datos de envío",
+    "address": "Dirección:",
+    "city": "Ciudad:",
+    "province": "Provincia:",
+    "postal": "Código postal:",
+    "country": "País:",
+    "phone": "Teléfono de contacto:",
+    "summary": "Resumen",
+    "all_country": "Selecciona un país"
   }
 }

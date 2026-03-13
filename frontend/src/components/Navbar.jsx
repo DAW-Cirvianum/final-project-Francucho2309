@@ -18,11 +18,8 @@ export default function Navbar() {
     localStorage.setItem("lang", lang);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (query.trim()) {
-      navigate(`/shirt?search=${query}`);
-    }
+  const handleOrder = () => {
+    navigate("/orders");
   };
 
   const handleLogout = async () => {
@@ -109,6 +106,14 @@ export default function Navbar() {
                   </button>
 
                   <ul className="dropdown-menu dropdown-menu-end">
+                    <li>
+                      <button
+                        className="dropdown-item text-success fw-bold"
+                        onClick={handleOrder}
+                      >
+                        {t("navbar.orders")}
+                      </button>
+                    </li>
                     <li>
                       <button
                         className="dropdown-item text-success fw-bold"
