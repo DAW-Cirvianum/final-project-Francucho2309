@@ -94,6 +94,7 @@
     "title": "Mis pedidos",
     "item": "Pedido",
     "show": "Ver detalles",
-    "success": "Pedido realizado correctamente."
+    "success": "Pedido realizado correctamente.",
+    "product": "Producto"
   }
 }

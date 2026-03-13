@@ -1,1 +1,100 @@
-{}
+{
+  "error": {
+    "generic": "An error has occurred, we apologize for the inconvenience.",
+    "notfound": "No shirt",
+    "regex_name": "The name must contain at least one letter and can include letters, numbers, and spaces.",
+    "invalid_email": "The email address is not in a valid format.",
+    "unique_email": "The email address is already registered.",
+    "regex_password": "The password must contain at least one uppercase letter, one lowercase letter, and one number.",
+    "min_password": "The password must be at least 8 characters long.",
+    "confirm_password": "The password confirmation does not match.",
+    "verify_email": "You must verify your email before logging in.",
+    "invalid_credential": "Incorrect email or password."
+  },
+
+  "loading": {
+    "item": "Loading..."
+  },
+
+  "navbar": {
+    "search": "Search for a shirt",
+    "search_button": "Search",
+    "login": "Log in",
+    "register": "Register",
+    "logout": "Log out",
+    "orders": "My orders"
+  },
+
+  "filters": {
+    "title": "Filters",
+    "league": "League",
+    "team": "Team",
+    "all_league": "Select a league",
+    "all_team": "Select a team"
+  },
+
+  "pages": {
+    "shirts": {
+      "title": "Shirts"
+    }
+  },
+
+  "shirt": {
+    "size": "Size",
+    "price": "Price",
+    "quantity": "Quantity",
+    "addCart": "Add to cart",
+    "loginRequired": "Log in to buy",
+    "success": "Product added to cart",
+    "checkout": "Confirm order",
+    "confirm": "Confirm"
+  },
+
+  "card": {
+    "button": "View"
+  },
+
+  "auth": {
+    "login": {
+      "title": "Log in",
+      "button": "Enter"
+    },
+    "name": "Name:",
+    "email": "Email:",
+    "password": "Password:",
+    "confirm": "Confirm password:",
+    "register": {
+      "title": "Register",
+      "button": "Register",
+      "success": "User created. Check your email."
+    }
+  },
+
+  "cart": {
+    "empty": "Cart is empty.",
+    "title": "Cart",
+    "finish": "Next",
+    "checkout": "Confirm order",
+    "confirm": "Confirm"
+  },
+
+  "checkout": {
+    "shipping": "Shipping information",
+    "address": "Address:",
+    "city": "City:",
+    "province": "Province:",
+    "postal": "Postal code:",
+    "country": "Country:",
+    "phone": "Contact phone:",
+    "summary": "Summary",
+    "all_country": "Select a country"
+  },
+
+  "order": {
+    "title": "My orders",
+    "item": "Order",
+    "show": "View details",
+    "success": "Order placed successfully.",
+    "product": "Product"
+  }
+}

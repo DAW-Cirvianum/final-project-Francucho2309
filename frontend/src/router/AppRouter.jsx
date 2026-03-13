@@ -6,6 +6,7 @@ import Shirts from "../pages/Shirts";
 import ShirtDetail from "../pages/ShirtDetail";
 import Cart from "../pages/Cart";
 import Order from "../pages/Order";
+import OrderDetail from "../pages/OrderDetail";
 import Checkout from "../pages/Checkout";
 import NotFound from "../pages/NotFound";
 import MainLayout from "../layouts/MainLayout";
@@ -21,6 +22,7 @@ export default function AppRouter() {
         <Route element={<ProtectedRoute />}>
           <Route path="/cart" element={<Cart />} />
           <Route path="/orders" element={<Order />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
           <Route path="/checkout" element={<Checkout />} />
         </Route>
 
