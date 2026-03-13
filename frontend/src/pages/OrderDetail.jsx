@@ -68,7 +68,7 @@ export default function OrderDetail() {
 
           <div className="ms-3">
             <h6 className="fw-bold">
-              {item.shirt.name} {item.shirt.team_id} {item.shirt.season}
+              {item.shirt.name} {item.shirt.team?.name} {item.shirt.season}
             </h6>
 
             <p>
