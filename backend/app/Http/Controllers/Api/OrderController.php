@@ -113,6 +113,6 @@ class OrderController extends Controller
             ], 403);
         }
 
-        return response()->json($order->load('details.shirt.images'));
+        return response()->json($order->load('details.shirt.team.league', 'details.shirt.images'));
     }
 }
