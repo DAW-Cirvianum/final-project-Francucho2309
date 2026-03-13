@@ -45,9 +45,9 @@ class OrderController extends Controller
                 'shipping_address' => 'required|string|max:255',
                 'shipping_city' => 'required|string|max:100',
                 'shipping_province' => 'required|string|max:100',
-                'shipping_postal_code' => 'required|regex:/^[a-zA-Z0-9]+$/',
+                'shipping_postal_code' => 'required|string|max:20',
                 'shipping_country' => 'required|string|max:100',
-                'shipping_phone' => 'required|integer|max:20'
+                'shipping_phone' => 'required|string|max:20'
             ], [
                 'shipping_address.string' => 'La dirección de envío debe ser una cadena de texto.',
                 'shipping_address.max' => 'La dirección de envío no puede tener más de 255 caracteres.',
@@ -101,7 +101,7 @@ class OrderController extends Controller
             DB::rollBack();
 
             return response()->json([
-                'message' => $e
+                'message' => $e->getMessage()
             ], 500);
         }
     }
